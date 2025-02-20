@@ -1,0 +1,22 @@
+<html>
+<body>
+    <script>
+        class Car {
+            constructor(name, year) {
+                this.name = name;
+                this.year = year;
+            }
+        }
+        class Model extends Car {
+            constructor(name, year, role) {
+                super(name, year);
+                this.role = role;
+            }
+        }
+        const myCarModel = new Model("Toyota", 2022, "Sedan");
+        document.writeln("Car Name:", myCarModel.name);
+        document.writeln("<br>Year of the Model:", myCarModel.year);
+        document.writeln("<br>Role of the Model:", myCarModel.role);
+    </script>
+</body>
+</html>

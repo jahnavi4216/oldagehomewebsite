@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+                  body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: #fd0000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            img {
+            height: 200px; 
+            width: auto;
+            margin-right: 100px;
+               }
+        }
+        h1 {
+            color: rgb(255, 2, 2);
+            margin: 0px;
+            font-size: 75px;
+        }
+        
+        nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 30px;
+            margin: 0 5px;
+            font-size: 20px;
+        } 
+        h2 {
+            color: rgb(6, 6, 6);
+            margin: 0px;
+            font-size: 40px;
+        }
+        .navbar {
+            overflow: hidden;
+            font-family: Arial;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    table th, table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+    table th {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .view-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .status {
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Logo"><h1><center>&nbsp;&nbsp;&nbsp;&nbsp;SAHAYA FOUNDATION</center></h1></div>
+    <nav>   
+        <div class="navbar">
+            <a href="agentdash.html">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Dashboard
+            </a>
+            <div class="dropdown">
+                <button class="dropbtn">Donation Status
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="previous2.html">Previous Collections</a>
+                    <a href="pending2.html">Pending Collections</a>
+                </div>
+            </div>
+            <a href="home.html">Logout</a>
+        </div>
+    </nav><br><br><br><br><br>
+    <div class="container">
+        <h2>Previous Collection</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Donor Name</th>
+                    <th>Address</th>
+                    <th>Mobile Number</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>__</td>
+                    <td>__</td>
+                    <td>__</td>
+                    <td>__</td>
+                    <td>Collected</td>
+                    <td><button class="view-button" onclick="showDetails()">View</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="details" style="display: none;">
+            <h2>Donation Details</h2>
+            <p>Donar Name: </p>
+            <p>Address:</p>
+            <p>Mobile Number:</p>
+            <div class="status">Status: Collected</div>
+        </div>
+    </div>
+    
+    <script>
+        function showDetails() {
+            var detailsDiv = document.getElementById("details");
+            if (detailsDiv.style.display === "none") {
+                detailsDiv.style.display = "block";
+            } else {
+                detailsDiv.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/abouts/about-1/assets/css/about-1.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #neubar {
+            background: #9a7eb5;
+            box-shadow: 4px 6px 12px rgba(255, 255, 255, 0.4)
+        }
+
+        .nav-item .active {
+            border-radius: 6px;
+            background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+            box-shadow: 4px 4px 8px #ddc1a0, -4px -4px 8px #f7e5cc;
+        }
+
+        #neubar .dropdown-menu a:hover {
+            color: #482559;
+        }
+
+        #neubar .nav-item {
+            margin: auto 4px;
+        }
+
+        #neubar a {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #neubar .dropdown-menu {
+            border-radius: 6px;
+            background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+            box-shadow: 4px 4px 8px #ddc1a0, -4px -4px 8px #f7e5cc;
+            background: #644141;
+            background-color: rgb(255, 255, 255);
+            color: rgb(154, 93, 171);
+        }
+
+        a.navbar-brand {
+            color: #454545
+        }
+
+        .text {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #1f1f1f;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #ffffff;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .img_deg {
+            float: right;
+            width: 40%;
+        }
+
+        .pos_cen {
+            position: absolute;
+            width: 85%;
+            left: 10%;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #fd0000;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 22%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: blue;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .box button:hover {
+            background-color: darkblue;
+        }
+        .container {
+            max-width: 800;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20;
+            border-radius: 10;
+            box-shadow: 0 0 10 rgba(0, 0, 0, 0.1);
+        }
+        .background-box {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        #food_type,
+        #quantity,
+        #expiry_date,
+        #phone_number,
+        #message {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-group button {
+            background-color: rgb(52, 52, 202);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            border-radius: 40px;
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-group button:hover {
+            background-color:;
+        }
+        .background-box {
+    background-color: #f8f8f8; 
+    padding: 100px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+     <script>
+        function validateForm() {
+            var foodType = document.getElementById('food_type').value;
+            var quantity = document.getElementById('quantity').value;
+            var address = document.getElementById('address').value;
+            var expiryDate = document.getElementById('expiry_date').value;
+            var phoneNumber = document.getElementById('phone_number').value;
+
+            if (foodType.trim() === '' || quantity.trim() === '' || address.trim() === '' || expiryDate.trim() === '' || phoneNumber.trim() === '') {
+                alert('Please fill in all fields');
+                return false;
+            }
+            var phoneNumberRegex = /^[789]\d{9}$/;
+        if (!phoneNumberRegex.test(phoneNumber)) {
+            alert('Phone number should start with 7, 8, or 9 and contain 10 digits');
+            return false;
+        }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="#" onsubmit="return validateForm()">
+    <section>
+        <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+            <div class="container">
+                <a class="navbar-brand"><img src="newlogo.jpg" height="70" alt="Avatar" style="border-radius: 50%;"/ /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1>Sahaya Foundation</h1>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="home.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" aria-current="page" href="#" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Donate
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="food.html">Food</a></li>
+                                <li><a class="dropdown-item" href="cloth1.html">Clothes</a></li>
+                                <li><a class="dropdown-item" href="medicine.html">Medicine</a></li>
+                                <li><a class="dropdown-item" href="money.html">Money</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Donation Status
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="previous.html">Previous Donations</a></li>
+                                <li><a class="dropdown-item" href="pending.html">Pending Donations</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="home.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <div class="background-box">
+        <div class="container">
+            <div class="left-section">
+                <img src="foodcanva.jpg" alt="Placeholder Image" style="width: 70%;">
+            </div>
+            <div class="right-section">
+                <h2><center>Donate Food</center></h2>
+                <form action="#">
+                    <div class="form-group">
+                        <label for="food_type">Food Type:</label>
+                        <select id="food_type" name="food_type">
+                            <option value="rice">Rice</option>
+                            <option value="pulav">Fruits</option>
+                            <option value="milk">Pulses</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <select id="quantity" name="quantity">
+                            <option value="2kg">1 kgs</option>
+                            <option value="3kg">2 kgs</option>
+                            <option value="4kg">3 kgs</option>
+                            <option value="5kg">4 kgs</option>
+                            <option value="6kg">5 kgs</option>
+                            <option value="more_than_5kg">More than 5 kgs</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address to Collect:</label>
+                        <br>
+                        <textarea id="address" name="address" required  style="width:100%;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry_date">Expiry Date:</label>
+                        <input type="date" id="expiry_date" name="expiry_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number:</label>
+                        <input type="text" id="phone_number" name="phone_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Want to write some message?</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div><br>
+                    <div class="form-group">
+                        <button type="submit">Donate Food</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center text-sm-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Sahaya Foundation © 2019 Copyright: All rights are reserved
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</form>
+</html>

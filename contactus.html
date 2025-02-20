@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #neubar {
+      background: #9a7eb5;
+      box-shadow: 4px 6px 12px rgba(255, 255, 255, 0.4)
+    }
+    
+    .nav-item .active {
+      border-radius: 6px;
+      background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+      box-shadow:  4px 4px 8px #ddc1a0,
+                   -4px -4px 8px #f7e5cc;
+    }
+    #neubar .dropdown-menu a:hover {
+      color: #454545
+    }
+    #neubar .nav-item {
+      margin : auto 4px;
+    }
+    #neubar a {
+    
+      padding-left:20px;
+      padding-right:20px;
+    }
+    #neubar .dropdown-menu {
+      background : #545454
+    }
+    a.navbar-brand {
+      color: #454545
+    }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .img_deg {
+            float: right;
+            width: 40%;
+        }
+
+        .pos_cen {
+            position: absolute;
+            width: 85%;
+            left: 10%;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+         <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/abouts/about-1/assets/css/about-1.css" />
+        .active,
+        .dot:hover {
+            background-color: #fd0000;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 22%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: #fd0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+       <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/contacts/contact-1/assets/css/contact-1.css" />
+        .box button:hover {
+            background-color: #e00000;
+        }
+        <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    .map-container {
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #google-map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+<script>
+  function validateForm() {
+      var fullName = document.getElementById('fullname').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var message = document.getElementById('message').value.trim();
+      if (fullName === '') {
+          alert('Full Name is required.');
+          return false;
+      }
+      if (email === '') {
+          alert('Email is required.');
+          return false;
+      } else if (!validateEmail(email)) {
+          alert('Invalid email format.');
+          return false;
+      }
+      if (phone !== '' && !validatePhoneNumber(phone)) {
+          alert('Invalid mobile number. It should start with 6, 7, 8, or 9 and have 10 digits.');
+          return false;
+      }
+      if (message === '') {
+          alert('Message is required.');
+          return false;
+      }
+
+      return true;
+  }
+
+  function validateEmail(email) {
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+  function validatePhoneNumber(phone) {
+      var phoneRegex = /^[789]\d{9}$/; 
+      return phoneRegex.test(phone);
+  }
+</script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+    <div class="container">
+      <a class="navbar-brand"><img src="newlogo.jpg" height="70" style="border-radius: 50%;"/></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class= "nav-link mx-2" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="donorlogin.html">Donor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="admin login.html">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="agentlogin.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class= "nav-link mx-2 active" aria-current="page" href="contactus.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="feedback.html">Feedback</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+ </nav>
+<section class="bg-light py-3 py-md-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+        <h2 class="mb-4 display-5 text-center">Contact</h2>
+        <p class="text-secondary mb-5 text-center">Address: 20-4/1-216/A subbarajunagar new, Rajarajeshwari Peta Rd, Vijayawada, Andhra Pradesh 520015</p>
+        <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-lg-center">
+      <div class="col-12 col-lg-9">
+        <div class="bg-white border rounded shadow-sm overflow-hidden">
+          <form action="#!" onsubmit="return validateForm()">
+            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+              <div class="col-12">
+                <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                    </svg>
+                  </span>
+                  <input type="email" class="form-control" id="email" name="email" value="" required>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <div class="input-group">
+                  <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                      <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                  </span>
+                  <input type="tel" class="form-control" id="phone" name="phone" value="">
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+              </div>
+              <div class="col-12">
+                <div class="d-grid">
+                  <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<center>
+    <h2>Address on Google Maps</h2>
+<div class="col-12 col-lg-6 mt-4 mt-lg-0">
+    <div class="bg-white border rounded shadow-sm overflow-hidden">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.74755535363!2d80.63173137514596!3d16.538837484210696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e51c758a8751%3A0xcf9c4a325c2475b!2sSahayafoundation%20old%20age%20home!5e0!3m2!1sen!2sin!4v1707539564175!5m2!1sen!2sin" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div></center>
+<footer class="bg-dark text-white text-center text-sm-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Sahaya Foundation © 2019 Copyright: All rights are reserved
+    </div>
+</footer>
+</body></html>

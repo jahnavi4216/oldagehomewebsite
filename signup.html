@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="text-center">
+        <div class="p-5 bg-image" style="
+          background-image: url('oldj1.jpg');
+          width:80opx;
+          height: 300px;"></div>
+
+
+        <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -100px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+            <div class="card-body py-5 px-md-5">
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-5">Sign up now</h2>
+                        <form onsubmit="return validateForm()">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="firstName" class="form-control" required />
+                                        <label class="form-label" for="firstName">First name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" id="lastName" class="form-control" required />
+                                        <label class="form-label" for="lastName">Last name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <input type="email" id="email" class="form-control" required />
+                                <label class="form-label" for="email">Email address</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" class="form-control" required />
+                                <label class="form-label" for="password">Password</label>
+                            </div>
+
+                            <div class="form-outline">
+                                <select class="form-select" id="userType" aria-label="Default select example" required>
+                                    <option value="donor">Donor</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="volunteer">Volunteer</option>
+                                </select>
+                                <label class="form-label" for="userType">Sign Up As</label>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Sign up
+                            </button>
+
+                            <div class="login-link">
+                                <p>Already have an account? <a href="donorlogin.html">login here</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var userType = document.getElementById('userType').value;
+    
+            if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '') {
+                alert('Please fill in all fields');
+                return false;
+            }
+            if (password.length < 6 || !hasSpecialCharacter(password)) {
+            alert('Password should contain at least 6 characters and at least one special character');
+            return false;
+        }
+            switch (userType) {
+                case 'donor':
+                    window.location.href = 'donorlogin.html';
+                    break;
+                case 'admin':
+                    window.location.href = 'admin login.html';
+                    break;
+                case 'volunteer':
+                window.location.href = 'agentlogin.html';
+                    break;
+                default:
+                    break;
+            }
+    
+            return false; 
+        }
+        function hasSpecialCharacter(str) {
+        var specialCharacters = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+        return specialCharacters.test(str);
+    }
+    </script>  
+</body>
+</html>

@@ -1,0 +1,287 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+         <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/abouts/about-1/assets/css/about-1.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #neubar {
+      background: #9a7eb5;
+      box-shadow: 4px 6px 12px rgba(255, 255, 255, 0.4)
+    }
+    
+    .nav-item .active {
+      border-radius: 6px;
+      background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+      box-shadow:  4px 4px 8px #ddc1a0,
+                   -4px -4px 8px #f7e5cc;
+    }
+    #neubar .dropdown-menu a:hover {
+      color: #482559;
+    }
+    #neubar .nav-item {
+      margin : auto 4px;
+    }
+    #neubar a {
+      padding-left:20px;
+      padding-right:20px;
+    }
+    #neubar .dropdown-menu {
+      background : #644141;
+      background-color: rgb(255, 255, 255); 
+            color:rgb(154, 93, 171);
+    }
+    a.navbar-brand {
+      color: #454545
+    }
+        .text {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #1f1f1f;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #ffffff;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .img_deg {
+            float: right;
+            width: 40%;
+        }
+
+        .pos_cen {
+            position: absolute;
+            width: 85%;
+            left: 10%;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active,
+        .dot:hover {
+            background-color: #fd0000;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 22%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: #fd0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .box button:hover {
+            background-color: #e00000;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+           
+        }
+
+        .dashboard-item {
+            width: calc(50% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #24456f;
+        }
+
+        @media screen and (max-width: 768px) {
+            .dashboard-item {
+                width: 100%;
+            }
+        }
+        
+    </style>
+</head>
+<body><section>
+  <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+            <div class="container">
+                <a class="navbar-brand"><img src="newlogo.jpg" height="70" alt="Avatar" style="border-radius: 50%;"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1>Sahaya Foundation</h1>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 active" aria-current="page" href="admindash.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Donation Status
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <li><a class="dropdown-item" href="previous1.html">Previous Donations</a></li>
+                              <li><a class="dropdown-item" href="pending1.html">Pending Donations</a></li>
+                          </ul>
+                      </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="home.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section>
+      <br>
+      <div class="dashboard">
+        <div class="dashboard-item">
+            <h2>0<br>Admins</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>Donors</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>Agents</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>New donation requests</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>Donations to be assigned to agent</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>Donations collected</h2>
+        </div>
+        <div class="dashboard-item">
+            <h2>0<br>Donations not collected yet</h2>
+        </div>
+    </div>  
+      </section>
+      <br><br><br><br><br>
+  <footer class="bg-dark text-white text-center text-sm-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Sahaya Foundation © 2019 Copyright: All rights are reserved
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #neubar {
+      background: #9a7eb5;
+      box-shadow: 4px 6px 12px rgba(255, 255, 255, 0.4)
+    }
+    
+    .nav-item .active {
+      border-radius: 6px;
+      background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+      box-shadow:  4px 4px 8px #ddc1a0,
+                   -4px -4px 8px #f7e5cc;
+    }
+    #neubar .dropdown-menu a:hover {
+      color: #454545
+    }
+    #neubar .nav-item {
+      margin : auto 4px;
+    }
+    #neubar a {
+    
+      padding-left:20px;
+      padding-right:20px;
+    }
+    #neubar .dropdown-menu {
+      background : #545454
+    }
+    a.navbar-brand {
+      color: #454545
+    }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .img_deg {
+            float: right;
+            width: 40%;
+        }
+
+        .pos_cen {
+            position: absolute;
+            width: 85%;
+            left: 10%;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+         <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/abouts/about-1/assets/css/about-1.css" />
+        .active,
+        .dot:hover {
+            background-color: #fd0000;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 22%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: #fd0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .box button:hover {
+            background-color: #e00000;
+        }
+    </style>
+      <script>
+        function validateFeedbackForm() {
+            var fullName = document.getElementById('fullname').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var feedback = document.getElementById('feedback').value.trim();
+
+            // Validate Full Name
+            if (fullName === '') {
+                alert('Full Name is required.');
+                return false;
+            }
+
+            // Validate Email
+            if (email === '') {
+                alert('Email is required.');
+                return false;
+            } else if (!validateEmail(email)) {
+                alert('Invalid email format.');
+                return false;
+            }
+
+            // Validate Feedback
+            if (feedback === '') {
+                alert('Feedback is required.');
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail(email) {
+            // Simple email validation, you might want to use a more robust method
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</head>
+<body><section>
+  <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+    <div class="container">
+      <a class="navbar-brand"><img src="newlogo.jpg" height="70"style="border-radius: 50%;" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto ">
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class= "nav-link mx-2" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="donorlogin.html">Donor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="admin login.html">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="agentlogin.html">Volunteer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="contactus.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 active" aria-current="page" href="feedback.html">Feedback</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+    </section>
+    <section class="bg-light py-3 py-md-5">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                    <h2 class="mb-4 display-5 text-center">Feedback</h2>
+                    <p class="text-secondary mb-5 text-center">We value your feedback to improve our services for the elderly.</p>
+                    <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-lg-center">
+                <div class="col-12 col-lg-9">
+                    <div class="bg-white border rounded shadow-sm overflow-hidden">
+                        <form action="#!" onsubmit="return validateFeedbackForm()">
+                            <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+                                <div class="col-12">
+                                    <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" name="email" value="" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Feedback <span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="feedback" name="feedback" rows="3" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary btn-lg" type="submit">Submit Feedback</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <footer class="bg-dark text-white text-center text-sm-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Sahaya Foundation © 2019 Copyright: All rights are reserved
+    </div>
+</footer>
+</body></html>

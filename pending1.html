@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/abouts/about-1/assets/css/about-1.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #neubar {
+            background: #9a7eb5;
+            box-shadow: 4px 6px 12px rgba(255, 255, 255, 0.4)
+        }
+
+        .nav-item .active {
+            border-radius: 6px;
+            background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+            box-shadow: 4px 4px 8px #ddc1a0, -4px -4px 8px #f7e5cc;
+        }
+
+        #neubar .dropdown-menu a:hover {
+            color: #482559;
+        }
+
+        #neubar .nav-item {
+            margin: auto 4px;
+        }
+
+        #neubar a {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        #neubar .dropdown-menu {
+            border-radius: 6px;
+            background: linear-gradient(145deg, #ffe7ca, #f5d7b2);
+            box-shadow: 4px 4px 8px #ddc1a0, -4px -4px 8px #f7e5cc;
+            background: #644141;
+            background-color: rgb(255, 255, 255);
+            color: rgb(154, 93, 171);
+        }
+
+        a.navbar-brand {
+            color: #454545
+        }
+
+        .text {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #1f1f1f;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #ffffff;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .img_deg {
+            float: right;
+            width: 40%;
+        }
+
+        .pos_cen {
+            position: absolute;
+            width: 85%;
+            left: 10%;
+            background-color: rgb(255, 255, 255);
+            padding: 0px;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #fd0000;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 22%;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .box img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .box button {
+            background-color: blue;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .box button:hover {
+            background-color: blue;
+        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    table th, table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+    table th {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .view-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .status {
+        margin-top: 20px;
+    }
+    .background-box {
+    width: 100%;
+    height: 500px;
+    background-color: #f8f8f8;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <nav class="navbar navbar-expand-sm navbar-light" id="neubar">
+            <div class="container">
+                <a class="navbar-brand"><img src="newlogo.jpg" height="70" alt="Avatar" style="border-radius: 50%;"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1>Sahaya Foundation</h1>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="admindash.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Donation Status
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="previous1.html">Previous Donations</a></li>
+                                <li><a class="dropdown-item" href="pending1.html">Pending Donations</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link mx-2" href="home.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section><br><br><br><br>
+    <div class="background-box">
+    <div class="container">
+        <h2><center>Pending Donations</center></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Donor Name</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>__</td>
+                    <td>__</td>
+                    <td>__</td>
+                    <td>Collected</td>
+                    <td><button class="view-button" onclick="showDetails()">View</button></td>
+                </tr>
+            </tbody>
+        </table><center>
+        <div id="details" style="display: none;">
+            <h2>Donation Details</h2>
+            <p>Donar Name: </p>
+            <p>Address:</p>
+            <p>Mobile Number:</p>
+            <div class="status">Status: Pending</div><br><center>
+                <button onclick="acceptDonation()" style="background-color: #007bff; color:white;">Accept</button>
+
+                <script>
+                    function acceptDonation() {
+                        window.location.href = 'agentassign.html';
+                    }
+                </script>
+            <button ng-click="#"style="background-color:  #007bff; color: white;">Reject</button></center>
+        </div>
+    </div>
+    
+    <script>
+        function showDetails() {
+            var detailsDiv = document.getElementById("details");
+            if (detailsDiv.style.display === "none") {
+                detailsDiv.style.display = "block";
+            } else {
+                detailsDiv.style.display = "none";
+            }
+        }
+    </script>
+</div></center></center>
+    <br><br><br><br>
+    <footer class="bg-dark text-white text-center text-sm-start">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            Sahaya Foundation © 2019 Copyright: All rights are reserved
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

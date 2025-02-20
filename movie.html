@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Book Movie Tickets</title>
+</head>
+<body>
+  <script>
+    var tickets = parseInt(prompt("Enter number of tickets"))
+    document.writeln("Price of each ticket : Rs. 150")
+    document.writeln("<br>Number of Tickets : "+tickets)
+    var price=tickets*150
+    if(tickets<=2){
+      document.writeln("<br>Price is:"+price)
+    }else if(tickets>=6){
+      document.writeln("<br>reached maximum limit.")
+    }else{
+      document.writeln("<br>Price is : "+price)
+      document.writeln("<br>10% Discount : "+price*0.1)
+      document.writeln("<br>Total Price : "+(price - (price*0.1)))
+    }
+  </script>
+</body></html>
